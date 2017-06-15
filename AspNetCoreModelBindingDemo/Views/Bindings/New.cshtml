@@ -6,7 +6,7 @@
 
 <h2>New User (Attribute Binding)</h2>
 
-<form asp-action="new" asp-controller="bindings" method="post">
+<form asp-action="new" asp-controller="bindings" asp-antiforgery="true" method="post">
     <div>
         <label>
             ID (property is always bound from Form values):
