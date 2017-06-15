@@ -1,0 +1,30 @@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Default Model Binding</h2>
+
+<a asp-action="new">Add a New User</a>
+
+@if (ViewData["message"] != null && !String.IsNullOrWhiteSpace(ViewData["message"].ToString()))
+{
+    <div style="border: solid 1px black">
+        <h4>NEW USER: @ViewData["message"]</h4>
+    </div>
+}
+
+<p>Default model binding in ASP.NET Core works by examining <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding">three parts</a> of the incoming request:</p>
+
+<ol>
+    <li>The Form values (used in POST actions).</li>
+    <li>The Route values, provided by Routing.</li>
+    <li>The Query String portion of the URL.</li>
+</ol>
+
+<p>
+    Values are bound on a simple name/value pair, and in the order above.  So, if you have an input in the Form named "id" with value 72, and an item in the Query String
+    named "id" with a value of "43", 72 will be bound to the input.
+</p>
+
+<p>As a simple example, try <a asp-action="new">adding a new user</a>.</p>

@@ -1,0 +1,43 @@
+@model AspNetCoreModelBindingDemo.ViewModels.Default.User
+
+@{
+    ViewData["Title"] = "New";
+}
+
+<h2>New User (Default Binding)</h2>
+
+<form asp-action="new" asp-controller="default" method="post">
+    <div>
+        <label>
+            ID:
+            <input asp-for="ID" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            First Name:
+            <input type="text" asp-for="FirstName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Last Name:
+            <input type="text" asp-for="LastName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Date of Birth:
+            <input type="date" asp-for="DateOfBirth" />
+        </label>
+    </div>
+    <div>
+        <p>The below controller was bound via the Routing system.  Because it is a label, it will not be passed when a POST is submitted.</p>
+        <label>
+            Controller: @Model.Controller
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>

@@ -1,0 +1,33 @@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Attribute Model Binding</h2>
+
+<a asp-action="new">Add a New User</a>
+
+
+@if (ViewData["message"] != null && !String.IsNullOrWhiteSpace(ViewData["message"].ToString()))
+{
+    <div style="border: solid 1px black">
+        <h4>NEW USER: @ViewData["message"]</h4>
+    </div>
+}
+
+<p>Attribute model binding in ASP.NET Core is merely a more specific form of Default Binding.  It also examines the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding">three parts</a> of the incoming request:</p>
+
+<p>HOWEVER, there are also some additional options which we can use:</p>
+
+<ul>
+    <li>[BindRequired]: Forces ASP.NET Core to throw an error if a property or class cannot be bound (as opposed to using the default value for that property or class)</li>
+    <li>[BindNever]: Specifies that this property or class will never be bound.</li>
+    <li>[FromHeader]: Forces that property or class to be bound from header values.</li>
+    <li>[FromForm]: Forces that property or class to be bound from POST form values.</li>
+    <li>[FromRoute]: Forces that property or class to be bound from Routing.</li>
+    <li>[FromQuery]: Forces that property or class to be bound from the query string.</li>
+    <li>[FromServices]: Forces that property or class to be bound from injected services.</li>
+    <li>[FromBody]: Forces that property or class to be bound from the request body.  ASP.NET Core will then select a formatter based on the content type of the request..</li>
+</ul>
+
+<p>As a simple example, try once again to <a asp-action="new">add a new user</a>.</p>

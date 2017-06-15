@@ -1,0 +1,44 @@
+@model AspNetCoreModelBindingDemo.ViewModels.Bindings.BoundUser
+
+@{
+    ViewData["Title"] = "New";
+}
+
+<h2>New User (Attribute Binding)</h2>
+
+<form asp-action="new" asp-controller="bindings" method="post">
+    <div>
+        <label>
+            ID (property is always bound from Form values):
+            <input asp-for="ID" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            First Name (property is always bound from Form values):
+            <input type="text" asp-for="FirstName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Last Name (property is never bound):
+            <input type="text" asp-for="LastName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Date of Birth (property is always bound from Form values):
+            <input type="date" asp-for="DateOfBirth" />
+        </label>
+    </div>
+    <div>
+        <p>The value below is not bound from Form values, and so whatever you place here WILL NOT be bound to the model.  Instead, the controller name is always bound from the Route.</p>
+        <label>
+            Controller: 
+            <input type="text" asp-for="Controller" />
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>
